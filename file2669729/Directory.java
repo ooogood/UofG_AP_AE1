@@ -10,14 +10,16 @@ public class Directory implements Component {
 	// add a component into directory
 	//   ignore null component
 	public void add( Component c ) {
-		if( c == null ) return;
-		children.add( c );
+		if( c != null ) {
+			children.add( c );
+		}
 	}
 	// remove a component from directory
 	//   if the component is not inside this directory, do nothing
 	public void remove( Component c ) {
-		if( c == null ) return;
-		children.remove( c );
+		if( c != null ) {
+			children.remove( c );
+		}
 	}
 	// return this directory's name
 	public String getName() {
@@ -48,15 +50,20 @@ public class Directory implements Component {
 		}
 		return ret;
 	}
-	// search a file and return the parent of it
+	// search a file and return the direct parent directory of it
 	//   return null if the file is not under this directory
 	public Component search(String name) {
 		Component c;
 		for( var i : children ) {
-			c = i.search( name );
-			if( c == null ) continue;
-			else if( c instanceof File ) return this;
-			else return c;
+			if( i instanceof File ) {
+				if( i.getName().equals( name ) ) {
+					return this;
+				}
+			}
+			else {
+				c = i.search( name );
+				if( c != null ) return c;
+			}
 		}
 		return null;
 	}

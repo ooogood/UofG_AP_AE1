@@ -19,13 +19,12 @@ public class File implements Component {
 	public int getCount() {
 		return 1;
 	}
-	// return String that describe this file
+	// return String that describes this file
 	public String display(String prefix) {
 		return prefix + getName() + String.format( " (%d)", getSize() );
 	}
-	// if this file has this name, return this reference; otherwise return null
-	//   assume that we won't have files with the same name
+	// search function can only return Directory object
 	public Component search(String name) {
-		return ( name.equals( getName() ) ) ? this : null;
+		return null;
 	}
 }

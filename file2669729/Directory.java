@@ -12,6 +12,9 @@ public class Directory implements Component {
 	public void add( Component c ) {
 		if( c != null ) {
 			children.add( c );
+			if( c instanceof File ) {
+				((File)c).setParent( this );
+			}
 		}
 	}
 	// remove a component from directory
@@ -42,7 +45,7 @@ public class Directory implements Component {
 		return count;
 	}
 	// display the structure under this directory
-	public String display(String prefix) {
+	public String display( String prefix ) {
 		String ret = prefix + getName() + 
 			String.format( ": (count=%d, size=%d)", getCount(), getSize() );
 		for( var i : children ) {
@@ -52,18 +55,11 @@ public class Directory implements Component {
 	}
 	// search a file and return the direct parent directory of it
 	//   return null if the file is not under this directory
-	public Component search(String name) {
+	public Component search( String name ) {
 		Component c;
 		for( var i : children ) {
-			if( i instanceof File ) {
-				if( i.getName().equals( name ) ) {
-					return this;
-				}
-			}
-			else {
-				c = i.search( name );
-				if( c != null ) return c;
-			}
+			c = i.search( name );
+			if( c != null ) return c;
 		}
 		return null;
 	}

@@ -78,19 +78,58 @@ public class FileTest {
 		System.out.println( tmp == null ? "null" : tmp.getName() );
 		System.out.println( "=========================" );
 
-		// test 3
-		Directory t1 = new Directory("t1");
-		System.out.println( t1.display("") );
-		System.out.println( "=========================" );
-		Directory t2 = new Directory("t2");
-		t1.add( t2 );
-		Directory t3 = new Directory("t3");
-		t2.add( t3 );
-		Directory t4 = new Directory("t4");
-		t3.add( t4 );
-		Directory t5 = new Directory("t5");
-		t4.add( t5 );
-		System.out.println( t1.display("") );
-		System.out.println( "=========================" );
+		// // test 3
+		// Directory t1 = new Directory("t1");
+		// System.out.println( t1.display("") );
+		// System.out.println( "=========================" );
+		// Directory t2 = new Directory("t2");
+		// t1.add( t2 );
+		// Directory t3 = new Directory("t3");
+		// t2.add( t3 );
+		// Directory t4 = new Directory("t4");
+		// t3.add( t4 );
+		// Directory t5 = new Directory("t5");
+		// t4.add( t5 );
+		// System.out.println( t1.display("") );
+		// System.out.println( "=========================" );
+
+		// // test 4
+		// final int MAX = 50;
+        // Directory root = new Directory("root");
+        // Directory update = new Directory("0");
+        // root.add(update);
+        // for(int i = 0; i < MAX; i++){
+        //     Directory temp = new Directory(Integer.toString(i));
+        //     update.add(temp);
+        //     update = temp;
+        //     if(i == MAX-1){
+        //         for(int j = 0; j < MAX; j++){
+        //             update.add(new File(Integer.toString(j), j));
+        //         }
+        //     }
+        // }
+        // System.out.println(root.display(""));
+
+		// // test 5
+		// Directory root = new Directory("root");
+        // Directory tempDir = new Directory("temp");
+        // root.add(tempDir);
+        // for(int i = 0; i < 100; i++){
+        //     Directory dir = new Directory(Integer.toString(i));
+        //     tempDir.add(dir);
+        //     tempDir = dir;
+
+        //     if(i == 100-1){
+        //         for(int j = 0; j < 100; j++){
+        //             File file = new File(Integer.toString(j), j);
+        //             tempDir.add(file);
+        //             if(j == 100-1){
+        //                 tempDir.add(new File("hello there", 69));
+        //             }
+        //         }
+        //     }
+        // }
+        // //System.out.println(root.display(""));
+        // System.out.println(root.search("hello there").getName());
 	}
 }

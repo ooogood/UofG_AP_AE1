@@ -12,6 +12,8 @@ public class Directory implements Component {
 	public void add( Component c ) {
 		if( c != null ) {
 			children.add( c );
+			// Because we need to get parent in search(), here we use instanceof to implement a part of the hierarchy design.
+			// A better solution is to add getParent(), setParent() in the Component interface (which we are not allowed to).
 			if( c instanceof File ) {
 				((File)c).setParent( this );
 			}
@@ -53,7 +55,7 @@ public class Directory implements Component {
 		}
 		return ret;
 	}
-	// search a file and return the direct parent directory of it
+	// search for a file and return the direct parent component of it
 	//   return null if the file is not under this directory
 	public Component search( String name ) {
 		Component c;

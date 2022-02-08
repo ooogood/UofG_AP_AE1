@@ -2,23 +2,24 @@ package file2669729;
 
 public class FileTest {
 	public static void main(String[] args) {
-		// // test 1
-		// File courseworkpdf = new File("courseworkpdf",1);
-		// File courseworkzip = new File("coursework zip file",2);
+		System.out.println( "\tThis is a tab." );
+		// test 1
+		File courseworkpdf = new File("courseworkpdf",1);
+		File courseworkzip = new File("coursework zip file",2);
 
-		// Directory coursework = new Directory("coursework");
-		// coursework.add(courseworkpdf);
-		// coursework.add(courseworkzip);
+		Directory coursework = new Directory("coursework");
+		coursework.add(courseworkpdf);
+		coursework.add(courseworkzip);
 
-		// Directory unittests = new Directory("unit tests");
-		// File test1 = new File("unit test 1",56);
-		// unittests.add(test1);
+		Directory unittests = new Directory("unit tests");
+		File test1 = new File("unit test 1",56);
+		unittests.add(test1);
 
-		// coursework.add(unittests);
-		// coursework.remove(courseworkzip);
-		// System.out.println(coursework.display(""));
+		coursework.add(unittests);
+		coursework.remove(courseworkzip);
+		System.out.println(coursework.display("\t"));
 
-		// System.out.println( coursework.search("unit test 1").getName() );
+		System.out.println( coursework.search("unit test 1").getName() );
 
 		// test 2
 		Directory classical = new Directory("classical");
@@ -50,19 +51,19 @@ public class FileTest {
 		root.add(music);
 		randomDir.add(randomFile);
 		root.add(randomDir);
-		System.out.println( root.display("") );
+		System.out.println( root.display("\t") );
 		System.out.println( "=========================" );
 
 		music.remove(randomMusic);
 		pictures.remove(randomPic);
 		root.remove(randomDir);
-		System.out.println( root.display("") );
+		System.out.println( root.display("\t") );
 		System.out.println( "=========================" );
 
 		root.remove(portrait);
 		root.remove(GiantSteps);
 		root.remove(randomDir);
-		System.out.println( root.display("") );
+		System.out.println( root.display("\t") );
 		System.out.println( "=========================" );
 
 		Component tmp;

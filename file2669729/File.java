@@ -22,7 +22,7 @@ public class File implements Component {
 	}
 	// return String that describes this file
 	public String display(String prefix) {
-		return prefix + getName() + String.format( " (%d)", getSize() );
+		return getName() + String.format( " (%d)", getSize() );
 	}
 	// if this is the file we are searching for, return its parent
 	public Component search(String name) {

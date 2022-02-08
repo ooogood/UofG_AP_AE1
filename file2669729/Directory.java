@@ -48,12 +48,12 @@ public class Directory implements Component {
 	}
 	// display the structure under this directory
 	public String display( String prefix ) {
-		String ret = prefix + getName() + 
-			String.format( ": (count=%d, size=%d)", getCount(), getSize() );
+		String ret = getName() + String.format( ": (count=%d, size=%d)", getCount(), getSize() );
 		for( var i : children ) {
-			ret += ( "\n" + i.display( prefix + "\t" ) );
+			ret += ( "\n" + i.display( prefix ) );
 		}
-		return ret;
+		// indent all sub-Components
+		return ret.replace( "\n", "\n" + prefix );
 	}
 	// search for a file and return the direct parent component of it
 	//   return null if the file is not under this directory
